@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankur | Just Working and experiment</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(-45deg,#0f172a,#111827,#1e293b,#2563eb);
+background-size:400% 400%;
+animation:bg 15s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.card{
+width:90%;
+max-width:800px;
+padding:40px;
+border-radius:25px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+text-align:center;
+box-shadow:0 0 35px rgba(0,0,0,.5);
+animation:fade 1.5s ease;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.profile{
+width:170px;
+height:170px;
+border-radius:50%;
+border:5px solid #00e5ff;
+object-fit:cover;
+box-shadow:0 0 25px #00e5ff;
+margin-bottom:20px;
+transition:.4s;
+}
+
+.profile:hover{
+transform:scale(1.08);
+box-shadow:0 0 45px cyan;
+}
+
+h1{
+color:white;
+font-size:42px;
+margin-bottom:10px;
+}
+
+.typing{
+color:#00e5ff;
+font-size:24px;
+font-weight:bold;
+height:35px;
+}
+
+p{
+color:#ddd;
+margin-top:20px;
+line-height:1.8;
+font-size:18px;
+}
+
+.safe{
+margin-top:20px;
+padding:15px;
+border-radius:15px;
+background:rgba(0,255,0,.15);
+color:#00ff95;
+font-weight:bold;
+}
+
+.buttons{
+margin-top:30px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.btn{
+padding:14px 28px;
+border:none;
+border-radius:50px;
+background:#00e5ff;
+color:#000;
+font-weight:bold;
+cursor:pointer;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+background:white;
+}
+
+.icons{
+margin-top:35px;
+}
+
+.icons a{
+display:inline-block;
+margin:10px;
+font-size:28px;
+width:60px;
+height:60px;
+line-height:60px;
+border-radius:50%;
+background:rgba(255,255,255,.12);
+color:white;
+transition:.4s;
+}
+
+.icons a:hover{
+background:#00e5ff;
+color:black;
+transform:scale(1.2) rotate(360deg);
+}
+
+.footer{
+margin-top:30px;
+color:#aaa;
+font-size:14px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<img src="profile.jpg" class="profile">
+
+<h1>Hi, I'm Ankur</h1>
+
+<div class="typing" id="typing"></div>
+
+<p>
+
+Welcome to my personal website.
+
+This project was created only for testing purposes.
+
+The previous countdown page was just a demonstration.
+
+<strong>You are completely safe.</strong>
+
+Nothing has been hacked.
+
+I'm passionate about creating beautiful websites and modern digital experiences.
+
+</p>
+
+<div class="safe">
+
+✔ System Status: SAFE
+
+✔ Website Working Successfully
+
+✔ Thank You For Visiting
+
+</div>
+
+<div class="buttons">
+
+<a href="resume.pdf" download class="btn">
+<i class="fa-solid fa-download"></i>
+ Download Resume
+</a>
+
+<a href="index.html" class="btn">
+<i class="fa-solid fa-house"></i>
+ Home
+</a>
+
+</div>
+
+<div class="icons">
+
+<a href="https://wa.me/9395614523">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<a href="tel:+919395614523">
+<i class="fa-solid fa-phone"></i>
+</a>
+
+<a href="mailto:rmritunjay39@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+</a>
+
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="https://instagram.com/notavi">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://github.com/ankur">
+<i class="fab fa-github"></i>
+</a>
+
+</div>
+
+<div class="footer">
+
+© 2026 Ankur • Designed with ❤️
+
+</div>
+
+</div>
+
+<script>
+
+const words=[
+"Software Designer",
+"Web Developer",
+"UI Designer",
+"Creative Coder"
+];
+
+let i=0;
+let j=0;
+let current="";
+let isDeleting=false;
+
+function type(){
+
+current=words[i];
+
+if(isDeleting){
+document.getElementById("typing").textContent=current.substring(0,j--);
+}else{
+document.getElementById("typing").textContent=current.substring(0,j++);
+}
+
+if(!isDeleting && j===current.length+1){
+isDeleting=true;
+setTimeout(type,1200);
+return;
+}
+
+if(isDeleting && j===0){
+isDeleting=false;
+i=(i+1)%words.length;
+}
+
+setTimeout(type,isDeleting?60:120);
+
+}
+
+type();
+
+</script>
+
+</body>
+</html>
