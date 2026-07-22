@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Loading...</title>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Arial;
+}
+#count{
+    font-size:120px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div id="count">5</div>
+
+<script>
+let time = 5;
+let count = document.getElementById("count");
+
+let timer = setInterval(function(){
+
+    time--;
+    count.innerHTML = time;
+
+    if(time==0){
+        clearInterval(timer);
+        window.location.href="photo.html";
+    }
+
+},1000);
+</script>
+
+</body>
+</html>
